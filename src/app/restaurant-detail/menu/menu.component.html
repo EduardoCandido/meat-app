@@ -1,4 +1,5 @@
 <!--INÍCIO DO MENU -->
 <div class="col-md-9 col-xs-12">
-  <mt-menu-item *ngFor="let menuItem of menuItens | async" [menuItem]="menuItem" (add)="addMenuItem($event)"></mt-menu-item>  
+  <mt-menu-item *ngFor="let menuItem of menuItens | async" [menuItem]="menuItem" (add)="shoppingCart.addItem($event)"></mt-menu-item>  
 </div>
+<mt-shopping-cart #shoppingCart></mt-shopping-cart>

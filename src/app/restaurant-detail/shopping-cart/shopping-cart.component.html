@@ -7,36 +7,35 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <div class="table-responsive">
+      <div class="text-center" *ngIf="items().length == 0">
+        <p>Seu carrinho está vazio!</p>
+      </div>
+      <div *ngIf="items().length" class="table-responsive">
           <table class="table">
             <tbody>
-            <tr>
-              <th style="width:60%">Cerveja:</th>
-
-              <td class="text-right">R$ 6,00</td>
-
+            <tr *ngFor="let cartItem of items()">
+              <th style="width:60%">({{cartItem.quantity}}x) {{cartItem.menuItem.name}}</th>
+              <td class="text-right">{{cartItem.value() | currency: 'BRL': true}}</td>
+              <td class="btn btn-sm danger">
+                <a (click)="removeItem(cartItem)"><i class="fa fa-remove"></i></a>
+              </td>
             </tr>
-            <tr>
-              <th>Pork Burger</th>
-
-              <td class="text-right">R$ 22,00</td>
-            </tr>
-            <tr>
+            <!-- <tr>
               <th>Frete:</th>
 
               <td class="text-right">R$ 8,00</td>
-            </tr>
+            </tr> -->
             <tr>
               <th>Total:</th>
 
-              <td class="text-right">R$ 80,90</td>
+              <td class="text-right">{{total() | currency: 'BRL': true}}</td>
             </tr>
           </tbody></table>
-        </div>
+      </div>
     </div>
-    <div class="box-footer">
+    <div class="box-footer" *ngIf="items().length">
       <div class="pull-right">
-        <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
+        <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
         <a href="order.html" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
       </div>
     </div>
