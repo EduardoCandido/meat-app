@@ -20,20 +20,14 @@
           <p class="lead">Endereço de Entrega:</p>
         </div>
         <div class="col-sm-6 col-xs-12">
-          <div class="form-group" [class.has-success]="inputAdress.valid && (inputAdress.dirty || inputAdress.touched)" [class.has-error]="inputAdress.invalid && (inputAdress.dirty || inputAdress.touched)">
-            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Endereço</label>
-            <input type="text" class="form-control" id="inputSuccess" placeholder="Endereço" name="adress" #inputAdress="ngModel" ngModel required minlength="3">
-            <span *ngIf="inputAdress.valid && (inputAdress.dirty || inputAdress.touched)" class="help-block"><i class="fa fa-check">Ok</i></span>
-            <span *ngIf="inputAdress.invalid && (inputAdress.dirty || inputAdress.touched)" class="help-block"><i class="fa fa-check">Campo obrigatório</i></span>
-          </div>
+          <mt-input-container [errorMessage]="'Campo obrigatório e com no mínimo 5 caracteres'" [label]="'Endereço'">
+            <input type="text" class="form-control" id="inputSuccess" placeholder="Endereço" name="adress" ngModel required minlength="5">
+          </mt-input-container>
         </div>
         <div class="col-sm-2 col-xs-6">
-          <div class="form-group" [class.has-success]="inputNumber.valid && (inputNumber.dirty || inputNumber.touched)" [class.has-error]="inputNumber.invalid && (inputNumber.dirty || inputNumber.touched)">
-            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Número</label>
-            <input type="text" class="form-control" id="inputSuccess" placeholder="Número" name="number" autocomplete="off" #inputNumber="ngModel" ngModel required>
-            <span *ngIf="inputNumber.valid && (inputNumber.dirty || inputNumber.touched)" class="help-block"><i class="fa fa-check">Ok</i></span>
-            <span *ngIf="inputNumber.invalid && (inputNumber.dirty || inputNumber.touched)" class="help-block"><i class="fa fa-check">Campo obrigatório</i></span>
-          </div>
+          <mt-input-container [errorMessage]="'Número obrigatório e deve-se usar somente números'" [label]="'Número'">
+            <input type="text" class="form-control" id="inputSuccess" placeholder="Número" name="number" autocomplete="off" ngModel required pattern="^[0-9]*$">
+          </mt-input-container>
         </div>
         <div class="col-sm-4 col-xs-6">
           <div class="form-group">
@@ -105,27 +99,7 @@
           <p class="lead">Formas de Pagamento:</p>
 
             <div class="form-group">
-                <div>
-                  <label>
-                    <div class="iradio_flat-red checked" aria-checked="false" aria-disabled="false"
-                        style="position: relative;">
-                        <input type="radio" name="r3" class="flat-red" checked="" style="position: absolute; opacity: 0;"/>
-                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                    </div>
-                    Dinheiro
-                  </label>
-                </div>
-              <div>
-                <label>
-                  <div class="iradio_flat-red" aria-checked="false" aria-disabled="false"
-                      style="position: relative;">
-                      <input type="radio" name="r3" class="flat-red" checked="" style="position: absolute; opacity: 0;"/>
-                      <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                  </div>
-                  Cartão de Débito
-                </label>
-              </div>
-
+              <mt-radio [options]="paymentOptions"></mt-radio>
             </div>
 
         </div>
