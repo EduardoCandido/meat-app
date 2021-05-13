@@ -391,6 +391,23 @@
         }
       ],
       "id": 1
+    },
+    {
+      "adress": "Rua dos Jequitibás 460",
+      "number": "460",
+      "optionalAddress": "",
+      "paymentOption": "CD",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        },
+        {
+          "quantity": 1,
+          "menuId": "bread"
+        }
+      ],
+      "id": 2
     }
   ]
 }

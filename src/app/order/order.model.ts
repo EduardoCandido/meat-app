@@ -4,6 +4,7 @@ class Order{
     optionalAddress:string;
     paymentOption: string;
     orderItems: OrderItem[] = []
+    id:number;
 }
 
 class OrderItem{

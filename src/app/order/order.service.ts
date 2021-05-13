@@ -30,7 +30,7 @@ export class OrderService{
         return this.shoppingCartService.total();
     }
 
-    checkOrder(order:Order):Observable<string>{
+    checkOrder(order:Order):Observable<Order>{
         const url =  `${MEAT_API}/orders`;
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
