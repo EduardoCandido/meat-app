@@ -13,7 +13,7 @@ export class ShoppingCartService{
     addItem(menuItem: MenuItem):void{
         let existentCartItem = this.cartItems.find(cartItem => cartItem.menuItem.id == menuItem.id);
         if(existentCartItem){
-            existentCartItem.quantity = existentCartItem.quantity + 1;
+            this.increaseQuantity(existentCartItem);
         } else {
             this.cartItems.push(new CartItem(menuItem));
         }
@@ -25,5 +25,16 @@ export class ShoppingCartService{
 
     total():number{
         return this.cartItems.reduce((a, b)=> a + b.value(), 0);
+    }
+
+    increaseQuantity(cartItem:CartItem):void{
+        cartItem.quantity = cartItem.quantity + 1;
+    }
+
+    decreaseQuantity(cartItem:CartItem):void{
+        cartItem.quantity = cartItem.quantity - 1;
+        if(cartItem.quantity == 0){
+            this.removeItem(cartItem);
+        }
     }
 }
