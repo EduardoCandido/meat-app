@@ -408,6 +408,26 @@
         }
       ],
       "id": 2
+    },
+    {
+      "name": "Eduardo da Silva Candido",
+      "email": "eduardocandidopro@gmail.com",
+      "emailConfirmation": "eduardocandidopro@gmail.com",
+      "address": "Rua dos Jequitibás",
+      "number": "460",
+      "optionalAddress": "",
+      "paymentOption": "CD",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        },
+        {
+          "quantity": 1,
+          "menuId": "donut"
+        }
+      ],
+      "id": 3
     }
   ]
 }
