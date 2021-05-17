@@ -13,11 +13,16 @@
         </div>
       </div>                
       <div class="row invoice-info">
-        <div class="lead">Seus dados:</div>
+        <div class="col-xs-12">
+          <p class="lead">Seus dados:</p>
+        </div>
         <div class="col-sm-12 col-xs-12">
           <mt-input-container [errorMessage]="'Campo obrigatório'" [label]="'Nome'">
             <input type="text" class="form-control" id="name" placeholder="Nome" formControlName="name">
           </mt-input-container>
+        </div>
+        <div class="col">
+          <span *ngIf="orderForm.hasError('emailsNotMatch')" class="help-block has-error-block"><i class="fa fa-check">Emails não são iguais</i></span>
         </div>
         <div class="col-sm-6 col-xs-12">
           <mt-input-container [errorMessage]="'Email inválido'" [label]="'E-mail'">
